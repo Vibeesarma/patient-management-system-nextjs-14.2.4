@@ -64,6 +64,8 @@ const PatientForm = () => {
     } catch (error) {
       console.log("🚀 ~ onSubmit ~ error:", error);
     }
+
+    setIsLoading(false);
   }
 
   return (
