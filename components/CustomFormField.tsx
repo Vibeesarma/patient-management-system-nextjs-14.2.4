@@ -19,6 +19,8 @@ import { FormFieldType } from "./forms/PatientForm";
 
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { Select, SelectContent, SelectTrigger, SelectValue } from "./ui/select";
+import { Textarea } from "./ui/textarea";
 
 type CustomFormFieldProps = {
   control: Control<any>;
@@ -53,6 +55,7 @@ const RenderField = ({
     disabled,
     dateFormat,
     showTimeSelect,
+    children,
     renderSkeleton,
   } = props;
 
@@ -79,6 +82,18 @@ const RenderField = ({
             />
           </FormControl>
         </div>
+      );
+
+    case FormFieldType.TEXTAREA:
+      return (
+        <FormControl>
+          <Textarea
+            placeholder={placeholder}
+            {...field}
+            className="shad-textArea"
+            disabled={disabled}
+          />
+        </FormControl>
       );
 
     case FormFieldType.PHONE_INPUT:
@@ -119,8 +134,27 @@ const RenderField = ({
         </div>
       );
 
+    case FormFieldType.SELECT:
+      return (
+        <FormControl>
+          <Select onValueChange={field.onChange} defaultValue={field.value}>
+            <FormControl className="shad-select-trigger">
+              <SelectTrigger>
+                <SelectValue placeholder={placeholder} />
+              </SelectTrigger>
+            </FormControl>
+            <SelectContent className="shad-select-content">
+              {children}
+            </SelectContent>
+          </Select>
+        </FormControl>
+      );
+
     case FormFieldType.SKELETON:
       return renderSkeleton ? renderSkeleton(field) : null;
+
+    default:
+      break;
   }
 };
 
