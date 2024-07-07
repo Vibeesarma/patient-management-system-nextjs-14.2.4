@@ -63,3 +63,8 @@ export const users = new Sdk.Users(client);
 - so go to the collection section select the collection and click on create attributes to create schema.
 
 - after that go settings of the collection and add permission to create, read, update and delete.
+
+## React-datepicker
+
+- [react-datepicker](https://www.npmjs.com/package/react-datepicker) is a React component that allows users to select dates and times.
+- you can install it using `npm install react-datepicker --save`

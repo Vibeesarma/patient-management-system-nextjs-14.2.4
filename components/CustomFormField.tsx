@@ -12,9 +12,13 @@ import {
 import { Input } from "./ui/input";
 import Image from "next/image";
 import { Control } from "react-hook-form";
-import { FormFieldType } from "./forms/PatientForm";
+
 import PhoneInput from "react-phone-number-input";
 import "react-phone-number-input/style.css";
+import { FormFieldType } from "./forms/PatientForm";
+
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 type CustomFormFieldProps = {
   control: Control<any>;
@@ -49,6 +53,7 @@ const RenderField = ({
     disabled,
     dateFormat,
     showTimeSelect,
+    renderSkeleton,
   } = props;
 
   switch (fileType) {
@@ -90,6 +95,32 @@ const RenderField = ({
           />
         </FormControl>
       );
+
+    case FormFieldType.DATE_PICKER:
+      return (
+        <div className="flex rounded-md border border-dark-500 bg-dark-400">
+          <Image
+            src={"/assets/icons/calendar.svg"}
+            height={24}
+            width={24}
+            alt="calendar"
+            className="ml-2"
+          />
+          <FormControl>
+            <DatePicker
+              selected={field.value}
+              onChange={(date) => field.onChange(date)}
+              dateFormat={dateFormat ?? "MM/dd/yyyy"}
+              showTimeSelect={showTimeSelect ?? false}
+              timeInputLabel="Time:"
+              wrapperClassName="date-picker"
+            />
+          </FormControl>
+        </div>
+      );
+
+    case FormFieldType.SKELETON:
+      return renderSkeleton ? renderSkeleton(field) : null;
   }
 };
 
