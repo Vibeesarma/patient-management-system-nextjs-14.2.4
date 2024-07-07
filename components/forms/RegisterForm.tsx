@@ -18,6 +18,7 @@ import { Doctors, GenderOptions, IdentificationTypes } from "@/constants";
 import { Label } from "../ui/label";
 import { Select, SelectItem } from "../ui/select";
 import Image from "next/image";
+import FileUploader from "../FileUploader";
 
 const RegisterForm = ({ user }: { user: User }) => {
   const router = useRouter();
@@ -283,12 +284,39 @@ const RegisterForm = ({ user }: { user: User }) => {
           control={form.control}
           name="identitificationDocument"
           label="Scan Copy of Identification Document"
-          renderSkeleton={(field) => <FormControl>File Upload</FormControl>}
+          renderSkeleton={(field) => (
+            <FormControl>
+              <FileUploader files={field.value} onChange={field.onChange} />
+            </FormControl>
+          )}
         />
 
-        <div className="flex flex-col gap-6 xl:flex-row"></div>
-        <div className="flex flex-col gap-6 xl:flex-row"></div>
-        <div className="flex flex-col gap-6 xl:flex-row"></div>
+        <section className="space-y-6">
+          <div className="mb-9 space-y-1">
+            <h2 className="sub-header">Consent and Privacy Information</h2>
+          </div>
+        </section>
+
+        <CustomFormField
+          fileType={FormFieldType.CHECKBOX}
+          control={form.control}
+          name="treatmentConsent"
+          label="I Consented to Treatment"
+        />
+
+        <CustomFormField
+          fileType={FormFieldType.CHECKBOX}
+          control={form.control}
+          name="disclosureConsent"
+          label="I Consented to Disclosure Information"
+        />
+
+        <CustomFormField
+          fileType={FormFieldType.CHECKBOX}
+          control={form.control}
+          name="privacyConsent"
+          label="I Consented to Privacy Policy"
+        />
 
         <SubmitButton isLoading={isLoading}>Get started</SubmitButton>
       </form>

@@ -21,6 +21,8 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { Select, SelectContent, SelectTrigger, SelectValue } from "./ui/select";
 import { Textarea } from "./ui/textarea";
+import { Checkbox } from "./ui/checkbox";
+import { Label } from "./ui/label";
 
 type CustomFormFieldProps = {
   control: Control<any>;
@@ -152,6 +154,22 @@ const RenderField = ({
 
     case FormFieldType.SKELETON:
       return renderSkeleton ? renderSkeleton(field) : null;
+
+    case FormFieldType.CHECKBOX:
+      return (
+        <FormControl>
+          <div className="flex items-center gap-4">
+            <Checkbox
+              id={name}
+              checked={field.value}
+              onCheckedChange={field.onChange}
+            />
+            <Label htmlFor={name} className="checkbox-label">
+              {label}
+            </Label>
+          </div>
+        </FormControl>
+      );
 
     default:
       break;
