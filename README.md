@@ -142,13 +142,11 @@ export default FileUploader;
 - you can also add metrics to find click-through rates and other metrics like the below one (like how many users visited the registration page ).
 
 ```typescript
-
-  // used for tracking the number of users that viewed a page.
-  Sentry.metrics.set("user_view_register", user?.name);
+// used for tracking the number of users that viewed a page.
+Sentry.metrics.set("user_view_register", user?.name);
 ```
 
-
-# Twilio 
+## Twilio
 
 - [Twilio](https://www.twilio.com/) is a leading provider of cloud-based communication services.
 - we used the Twilio plugin in `appwrite` to send SMS.
@@ -158,4 +156,4 @@ export default FileUploader;
 - after that go to the developer window in Twilo after registering then you will above credentials copy that one and paste them into the Appwrite dashboard.
 - the SMS, you will receive which phone number you will add in the verified phone number field in Twililo.
 
-
+> Thanks for [JavaScript Mastery](https://www.youtube.com/@javascriptmastery)
