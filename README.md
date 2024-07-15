@@ -126,3 +126,25 @@ const FileUploader = ({ files, onChange }: FileUpladerProps) => {
 
 export default FileUploader;
 ```
+
+## Sentry
+
+- [Sentry](https://sentry.io/) provides end-to-end distributed tracing, enabling developers to identify and debug performance issues and errors across their systems and services.
+  first, go to the website create and an account.
+- you can install it using `npx @sentry/wizard -i nextjs`
+- then select yes After selecting sentry saas for use.
+- after that select no for request to avoid ad blockers.
+- then select using ci/cd to yes.
+- then you will get `SENTRY_AUTH_KEY` copy it and paste it into env.local.
+- then it will add a sentry and also a demo page.
+- you can see the log and video in the sentry dashboard.
+
+- you can also add metrics to find click-through rates and other metrics like the below one (like how many users visited the registration page ).
+
+```typescript
+
+  // used for tracking the number of users that viewed a page.
+  Sentry.metrics.set("user_view_register", user?.name);
+```
+
+
