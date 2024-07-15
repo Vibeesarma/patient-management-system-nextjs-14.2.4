@@ -1,4 +1,5 @@
 # Patient Management System: Nextjs 14.2.4
+![Screenshot 2024-07-15 160604](https://github.com/user-attachments/assets/84ee3477-a9f4-43b9-91a3-117310424637)
 
 > This project get from [JavaScript Mastery](https://www.youtube.com/@javascriptmastery) YouTube channel.
 
