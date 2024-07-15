@@ -148,3 +148,14 @@ export default FileUploader;
 ```
 
 
+# Twilio 
+
+- [Twilio](https://www.twilio.com/) is a leading provider of cloud-based communication services.
+- we used the Twilio plugin in `appwrite` to send SMS.
+- So go to the appwrite dashboard select the messaging tab and create a new provider in the providers tab.
+- after that, Select an SMS provider that some providers like Twilio in there select Twilio.
+- after that it asks for some credentials like `Account SID`, `Auth token` and `Sender number` so, go to Twilio and get these credentials.
+- after that go to the developer window in Twilo after registering then you will above credentials copy that one and paste them into the Appwrite dashboard.
+- the SMS, you will receive which phone number you will add in the verified phone number field in Twililo.
+
+
